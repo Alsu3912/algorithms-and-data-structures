@@ -65,7 +65,7 @@ class LinkedList {
         return current.data;
     }
 
-    size() {
+    getSize() {
         return this.size;
     }
 }

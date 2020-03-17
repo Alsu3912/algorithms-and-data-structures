@@ -285,5 +285,5 @@ test('Size method testing', () => {
     for (let i = 1; i <= 14; i++) {
         list.add(i);
     }
-    expect(list.size).toBe(14);
+    expect(list.getSize()).toBe(14);
 });
