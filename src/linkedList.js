@@ -36,25 +36,29 @@ class LinkedList {
         } else {
             while (current.data !== data) {
                 if (current.next === null) {
-                    throw new Error("Can't find such data");
+                    throw new Error("Can't find such a data");
                 }
                 previous = current;
                 current = current.next;
             }
             previous.next = current.next;
-        } 
+            this.size--;
+        }
     }
 
     get(index) {
-        if (index < 0) {
-            throw new Error("Incorrect index. Index should be greater or equal to zero");
+        if (!Number.isInteger(index)) {
+            throw new Error("Incorrect index. Index must be an integer number");
         }
-        if (index > this.size) {
-            throw new Error("There is no such index in the list. Check the list size using method 'size()'")
+        if (index < 0) {
+            throw new Error("Incorrect index. Index must be greater or equal to zero");
+        }
+        if (index >= this.size) {
+            throw new Error("There is no such index in the list. Check the list size using method 'size'")
         }
         let current = this.head;
         let i = 0;
-        while (i<index) {
+        while (i < index) {
             current = current.next;
             i++
         }
@@ -65,3 +69,5 @@ class LinkedList {
         return this.size;
     }
 }
+
+module.exports = LinkedList;
