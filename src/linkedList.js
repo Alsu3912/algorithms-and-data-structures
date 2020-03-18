@@ -8,6 +8,7 @@ class LinkedListNode {
 class LinkedList {
     constructor() {
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
@@ -16,13 +17,11 @@ class LinkedList {
 
         if (this.head === null) {
             this.head = newNode;
+            this.tail = this.head;
             this.size++;
         } else {
-            let current = this.head;
-            while (current.next !== null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            this.tail.next = newNode;
+            this.tail = this.tail.next;
             this.size++;
         }
     }
@@ -36,7 +35,7 @@ class LinkedList {
         } else {
             while (current.data !== data) {
                 if (current.next === null) {
-                    throw new Error("Can't find such a data");
+                    return false;
                 }
                 previous = current;
                 current = current.next;
@@ -44,6 +43,7 @@ class LinkedList {
             previous.next = current.next;
             this.size--;
         }
+        return true;
     }
 
     get(index) {
@@ -67,6 +67,16 @@ class LinkedList {
 
     getSize() {
         return this.size;
+    }
+
+    toArray() {
+        let linkedListArray = [];
+        let current = this.head;
+        while (current !== null) {
+            linkedListArray.push(current.data);
+            current = current.next;
+        }
+        return linkedListArray;
     }
 }
 

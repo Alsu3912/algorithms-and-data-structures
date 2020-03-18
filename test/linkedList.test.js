@@ -1,16 +1,25 @@
 const LinkedList = require('../src/linkedList');
 
+test('Converting to an array', () => {
+    const list = new LinkedList();
+    for (let i = 1; i <= 5; i++) {
+        list.add(i);
+    };
+    const resultArray = [1, 2, 3, 4, 5];
+    expect(list.toArray()).toStrictEqual(resultArray);
+})
+
+test('Converting an empty list to an array', () => {
+    const list = new LinkedList();
+    const resultArray = [];
+    expect(list.toArray()).toStrictEqual(resultArray);
+})
+
 test('Adding the head node', () => {
     const list = new LinkedList();
     list.add('This is a head');
-    const expectedObject = {
-        head: {
-            data: 'This is a head',
-            next: null
-        },
-        size: 1,
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = ['This is a head'];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Adding the head node to the end of a list(node is not a head)', () => {
@@ -18,46 +27,22 @@ test('Adding the head node to the end of a list(node is not a head)', () => {
     list.add('This is a head');
     list.add('Second node');
     list.add(3);
-    const expectedObject = {
-        head: {
-            data: 'This is a head',
-            next: {
-                data: 'Second node',
-                next: {
-                    data: 3,
-                    next: null
-                }
-            }
-        },
-        size: 3,
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = ['This is a head','Second node', 3];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Adding null as a node data', () => {
     const list = new LinkedList();
     list.add(null);
-    const expectedObject = {
-        head: {
-            data: null,
-            next: null
-        },
-        size: 1,
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [null];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Adding undefined as a node data', () => {
     const list = new LinkedList();
     list.add(undefined);
-    const expectedObject = {
-        head: {
-            data: undefined,
-            next: null
-        },
-        size: 1,
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [undefined];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Getting by an index equal to a string', () => {
@@ -137,34 +122,16 @@ test('Removing a data located in the head node', () => {
         list.add(i);
     }
     list.remove(1);
-    const expectedObject = {
-        head: {
-            data: 2,
-            next: {
-                data: 3,
-                next: {
-                    data: 4,
-                    next: {
-                        data: 5,
-                        next: null
-                    }
-                }
-            }
-        },
-        size: 4
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [2, 3, 4, 5];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Removing a data located in a node being the only one on the list (size == 1)', () => {
     const list = new LinkedList();
     list.add(1);
     list.remove(1);
-    const expectedObject = {
-        head: null,
-        size: 0
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Removing a data located in the second node', () => {
@@ -173,23 +140,8 @@ test('Removing a data located in the second node', () => {
         list.add(i);
     }
     list.remove(2);
-    const expectedObject = {
-        head: {
-            data: 1,
-            next: {
-                data: 3,
-                next: {
-                    data: 4,
-                    next: {
-                        data: 5,
-                        next: null
-                    }
-                }
-            },
-        },
-        size: 4
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [1, 3, 4, 5];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Removing a data located in the middle of a list', () => {
@@ -198,23 +150,8 @@ test('Removing a data located in the middle of a list', () => {
         list.add(i);
     }
     list.remove(3);
-    const expectedObject = {
-        head: {
-            data: 1,
-            next: {
-                data: 2,
-                next: {
-                    data: 4,
-                    next: {
-                        data: 5,
-                        next: null
-                    }
-                }
-            },
-        },
-        size: 4
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [1, 2, 4, 5]; 
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Removing a data located at the end of a list', () => {
@@ -223,23 +160,8 @@ test('Removing a data located at the end of a list', () => {
         list.add(i);
     }
     list.remove(5);
-    const expectedObject = {
-        head: {
-            data: 1,
-            next: {
-                data: 2,
-                next: {
-                    data: 3,
-                    next: {
-                        data: 4,
-                        next: null
-                    }
-                }
-            },
-        },
-        size: 4
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [1, 2, 3, 4]; 
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Cannot find a received data in a list', () => {
@@ -247,9 +169,16 @@ test('Cannot find a received data in a list', () => {
     for (let i = 1; i <= 5; i++) {
         list.add(i);
     }
-    const error = new Error("Can't find such a data")
-    expect(() => list.remove(15)).toThrow(error);
+    expect(list.remove(15)).toBe(false);
 });
+
+test('Return true after a successful removal', () => {
+    const list = new LinkedList();
+    for (let i = 1; i <= 5; i++) {
+        list.add(i);
+    }
+    expect(list.remove(4)).toBe(true);
+})
 
 test('Removing a data occurring several times in a list', () => {
     const list = new LinkedList();
@@ -258,26 +187,8 @@ test('Removing a data occurring several times in a list', () => {
     }
     list.add(3);
     list.remove(3);
-    const expectedObject = {
-        head: {
-            data: 1,
-            next: {
-                data: 2,
-                next: {
-                    data: 4,
-                    next: {
-                        data: 5,
-                        next: {
-                            data: 3,
-                            next: null
-                        } 
-                    }
-                }
-            },
-        },
-        size: 5
-    };
-    expect(list).toMatchObject(expectedObject);
+    const expectedObject = [1, 2, 4, 5, 3];
+    expect(list.toArray()).toMatchObject(expectedObject);
 });
 
 test('Size method testing', () => {
