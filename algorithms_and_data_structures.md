@@ -10,6 +10,8 @@ Implement a `LinkedList` class with operations `add(element)`, `remove(element)`
 Read about stack as a data structure. Apply this knowledge to solve a problem:
 Given a text consisting of alphabetical letters and numbers. This text has three types of brackets: "()", "{}" and "[]". You need to write a function which takes the text and returns `true` if the brackets are valid, `false` otherwise. Note that, the brackets are valid if and only if each opened bracket has closed. The brackets may be nested.
 
+The task might be solved without using stack by several local counters. But in your implementation you should use stack.
+
 Input: ({[]})
 Output: true
 
