@@ -41,6 +41,9 @@ class LinkedList {
                 current = current.next;
             }
             previous.next = current.next;
+            if (current === this.tail) {
+                this.tail = previous;
+            }
             this.size--;
         }
         return true;
