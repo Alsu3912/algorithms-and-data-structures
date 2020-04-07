@@ -18,9 +18,5 @@ export function isBracketCorrect(sequence: string): boolean {
             };
         };
     }
-    if (stack.length == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return stack.length == 0;
 }
