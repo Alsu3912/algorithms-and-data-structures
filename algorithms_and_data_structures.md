@@ -20,3 +20,6 @@ Output: false
 
 Input: aaaaa
 Output: true
+
+## Queue
+Implement a queue using stacks.
