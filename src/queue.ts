@@ -11,23 +11,21 @@ export class Queue<T> {
     };
 
     private transference(): void {
-        for (let i = 0; i = this.stack1.length; i++) {
+        while (this.stack1.length > 0) {
             let popped = this.stack1.pop();
             this.stack2.push(popped);
         }
     }
 
     removeFirst(): T {
-        if (this.stack2.length === 0) {
-            if (this.stack1.length === 0) {
-                throw new Error("The queue is empty, nothing to remove. Check the queue size using method 'size'")
-            } else {
-                this.transference();
-                return this.stack2.pop();
-            };
-        } else {
+        if (this.stack2.length === 0 && this.stack1.length === 0) {
+            throw new Error("The queue is empty, nothing to remove. Check the queue size using method 'size'")
+        }
+        if (this.stack1.length > 0) {
+            this.transference();
             return this.stack2.pop();
         };
+        return this.stack2.pop();
     };
 
     size(): Number {
@@ -38,7 +36,7 @@ export class Queue<T> {
         let array1 = this.stack1;
         let array2 = this.stack2;
         let current1 = 0;
-        let current2 = array2.length-1;
+        let current2 = array2.length - 1;
         return {
             next() {
                 if (current1 >= array1.length && current2 < 0) {
@@ -60,3 +58,10 @@ export class Queue<T> {
         }
     };
 };
+
+const iterableQ = new Queue<Number>();
+iterableQ.push(11);
+iterableQ.push(22);
+iterableQ.push(33);
+iterableQ.removeFirst();
+console.log(iterableQ)
