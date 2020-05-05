@@ -58,10 +58,3 @@ export class Queue<T> {
         }
     };
 };
-
-const iterableQ = new Queue<Number>();
-iterableQ.push(11);
-iterableQ.push(22);
-iterableQ.push(33);
-iterableQ.removeFirst();
-console.log(iterableQ)
