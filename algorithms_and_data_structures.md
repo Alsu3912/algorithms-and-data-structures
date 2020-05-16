@@ -23,3 +23,8 @@ Output: true
 
 ## Queue
 Implement a queue using stacks.
+
+## Sorting
+Read about sorting algorithms and sorting efficiency. [1](https://www.amazon.com/Data-Structures-Algorithms-Alfred-Aho/dp/0201000237) and [2](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) are classic books. You can use another sources as well.
+
+Implement insertion-, bubble- and quick sort algorithms. Note that, it would be nice to write a single set of tests to be able to test a generic sort and check your implementations against this set of tests. As usually, we need to discuss after implementing the algorithms. 
