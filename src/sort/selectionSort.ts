@@ -3,8 +3,7 @@ export default function selectionSort(arrayOfNumbers: number[]): number[] {
     for (let i = 0; i <= length; i++) {
         let current = arrayOfNumbers[i];
         let kMinimum = i;
-        let k = i+1;
-        for (k; k<= length; k++) {
+        for (let k = i+1; k<= length; k++) {
             if (arrayOfNumbers[kMinimum] > arrayOfNumbers[k]) {
                 kMinimum = k;
             }
