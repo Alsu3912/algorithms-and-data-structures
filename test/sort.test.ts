@@ -9,15 +9,18 @@ test('should return an empty array when received an empty array', () => {
 });
 
 test('should return the same array when received a sorted array', () => {
-    expect(selectionSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(quickSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0, )).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    expect(selectionSort(expected)).toStrictEqual(expected);
+    expect(bubbleSort(expected)).toStrictEqual(expected);
+    expect(quickSort(expected, 0, )).toStrictEqual(expected);
 });
 
 test('should sort back sorted array', () => {
-    expect(selectionSort([15, 12, 9, 8, 5, 3, 1, 0])).toStrictEqual([0, 1, 3, 5, 8, 9, 12, 15]);
-    expect(bubbleSort([15, 12, 9, 8, 5, 3, 1, 0])).toStrictEqual([0, 1, 3, 5, 8, 9, 12, 15]);
-    expect(quickSort([15, 12, 9, 8, 5, 3, 1, 0], 0, )).toStrictEqual([0, 1, 3, 5, 8, 9, 12, 15]);
+    const array = [15, 12, 9, 8, 5, 3, 1, 0];
+    const expected = [0, 1, 3, 5, 8, 9, 12, 15];
+    expect(selectionSort(array)).toStrictEqual(expected);
+    expect(bubbleSort(array)).toStrictEqual(expected);
+    expect(quickSort(array, 0, )).toStrictEqual(expected);
 });
 
 test('should return the same array when received an array with one element', () => {
@@ -27,7 +30,8 @@ test('should return the same array when received an array with one element', () 
 }); 
 
 test('should return the same array when received an array with a repetitive element', () => {
-    expect(selectionSort([9, 9, 9, 9, 9])).toStrictEqual([9, 9, 9, 9, 9]);
-    expect(bubbleSort([9, 9, 9, 9, 9])).toStrictEqual([9, 9, 9, 9, 9]);
-    expect(quickSort([9, 9, 9, 9, 9], 0)).toStrictEqual([9, 9, 9, 9, 9]);
+    const expected = [9, 9, 9, 9, 9];
+    expect(selectionSort(expected)).toStrictEqual(expected);
+    expect(bubbleSort(expected)).toStrictEqual(expected);
+    expect(quickSort(expected, 0)).toStrictEqual(expected);
 });
