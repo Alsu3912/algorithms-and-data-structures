@@ -39,7 +39,7 @@ Output: `[[2, 3], [5, 0]]`
 
 Input: `array = [1, 1, 1, 1, 1, 1], k = 2`
 
-Output: [[1, 1]]
+Output: `[[1, 1]]`
 
 Input: `array = [4, 2, 3, 1, 2, 5], k = 10`
 
