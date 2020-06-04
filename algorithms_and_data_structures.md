@@ -28,3 +28,15 @@ Implement a queue using stacks.
 Read about sorting algorithms and sorting efficiency. [1](https://www.amazon.com/Data-Structures-Algorithms-Alfred-Aho/dp/0201000237) and [2](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) are classic books. You can use another sources as well.
 
 Implement insertion-, bubble- and quick sort algorithms. Note that, it would be nice to write a single set of tests to be able to test a generic sort and check your implementations against this set of tests. As usually, we need to discuss after implementing the algorithms. 
+
+## Set
+Read about set as a data structure. You need to understand basic implementation of hash- and treesets. You may use example of another languages like Java or Python. After that, solve a task: given a list of integers and an integer number `k`. Write an application to return back all of unique pairs from the original list that equal to given `k`. The cost of the solution should be O(n) assuming that `has()` method in js set works in constant time.
+
+Input: array = [-1, 10, 2 , 3, 5, 0, 2], k = 5
+Output: [[2, 3], [5, 0]]
+
+Input: array = [1, 1, 1, 1, 1, 1], k = 2
+Output: [[1, 1]]
+
+Input: array = [4, 2, 3, 1, 2, 5], k = 10
+Output: []
