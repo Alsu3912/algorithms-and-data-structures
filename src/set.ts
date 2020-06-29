@@ -11,3 +11,5 @@ const findPair = (arrayOfNum: number[], sum: number) => {
     };
     return output;
 };
+
+export default findPair;
