@@ -46,7 +46,7 @@ Input: `array = [4, 2, 3, 1, 2, 5], k = 10`
 Output: `[]`
 
 ## Map
-Read about commom implementation of maps (dictionaries / key-value stores). Please, read about three widely used implementations: TreeMap, HashMap and LinkedHashMap (Java / C++ / Python / ...). Used a map implementation, please, write a code to solve the following task: given a string, find the longest substring without repeating characters.
+Read about commom implementation of maps (dictionaries / key-value stores). Please, read about three widely used implementations: TreeMap, HashMap and LinkedHashMap (Java / C++ / Python / ...). Used a map implementation, please, write a code to solve the following task: given a string, find the longest substring without repeating characters. In case of multiple max substring, you may return any of them.
 
 Input: `abcabcbb`
 
