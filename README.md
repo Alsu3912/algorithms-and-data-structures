@@ -60,3 +60,15 @@ Input: `pwwkew`
 
 Output: `kew`
 
+## Binary search tree
+Read about Binary search tree (BST), understand the main invariants of the structure. Don't go too deep towards balanced trees, just usual BST is enough. 
+Implement your own BST for a generic type in TS (for that it's better to read about generics in the language) as a Map with operations
+- `boolean add(T, V)` - add a key-value pair and return `true` if there is an existed node with the same key;
+- `boolean hasKey(T)`
+- `V remove(T)` - remove a key-value pair with the given key and return the value as a result. If there is no such a key, return null;
+- `for(...)` - write an iterator implementation for the data structure. Note that the the iterator should return the map entries starting from the smallest key i
+the asceding order;
+
+Internal structure of your map should be a binary search tree for the given keys. Keys should be comparable with each other and for that an additional function should be provided for a user of your library. As a result, you should provide a code covered with tests.
+
+Also try to answer is TS implementation of generics covariant? Or contravariant?
