@@ -4,20 +4,12 @@ test('should return a single symbol in case of a string of repeated characters',
     expect(findSubstring('aaaaa')).toStrictEqual('a');
 });
 
-test('should work correct', () => {
+test('should return one substring in case of multiple max substring', () => {
     expect(findSubstring('abcabcbb')).toStrictEqual('abc');
 });
 
-test('should work correct - 2', () => {
-    expect(findSubstring('pwwkew')).toStrictEqual('wke');
-});
-
-test('should work correct - 3', () => {
-    expect(findSubstring('abcabc')).toStrictEqual('abc');
-});
-
-test('should work correct - 4', () => {
-    expect(findSubstring('abbbbbb')).toStrictEqual('ab');
+test('should return the same string when input does not have repeating characters', () => {
+    expect(findSubstring('abckew')).toStrictEqual('abckew');
 });
 
 test('should return return a single symbol in case of a string with one symbol', () => {
