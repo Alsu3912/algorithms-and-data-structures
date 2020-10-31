@@ -4,12 +4,12 @@ class MapBST<K, V> {
     public root: NodeBST<K, V> = null;
     readonly compareFunction: CompareFunction<K>;
 
-    constructor(yourCompareFunction: CompareFunction<K>) {
-        this.compareFunction = yourCompareFunction;
+    constructor(compareFunction: CompareFunction<K>) {
+        this.compareFunction = compareFunction;
     };
 
-    private compare(AComparable: K, BComparable: K): number {
-        return this.compareFunction(AComparable, BComparable);
+    private compare(aComparable: K, bComparable: K): number {
+        return this.compareFunction(aComparable, bComparable);
     };
 
     public add(key: K, value: V): V {
@@ -43,14 +43,12 @@ class MapBST<K, V> {
 
     public hasKey(key: K): boolean {
         let searchResult = this.search(this.root, key);
-        if (searchResult === null) {
-            return false;
-        } else return true;
+        return searchResult != null;
     };
 
     private search(node: NodeBST<K, V>, key: K): NodeBST<K, V> {
         if (node === null) {
-            return node;
+            return null;
         } else if (this.compare(key, node.key) > 0) {
             return this.search(node.rightNode, key);
         } else if (this.compare(key, node.key) < 0) {
@@ -81,11 +79,11 @@ class MapBST<K, V> {
         } else {
             removedNode = node;
             if (node.rightNode === null) {
-                if (key === this.root.key) {
+                if (this.compare(key, this.root.key) === 0) {
                     this.root = node.leftNode;
                 } else return [node.leftNode, removedNode];
             } else if (node.leftNode === null) {
-                if (key === this.root.key) {
+                if (this.compare(key, this.root.key) === 0) {
                     this.root = node.rightNode
                 } else return [node.rightNode, removedNode];
             } else {
