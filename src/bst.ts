@@ -157,7 +157,7 @@ class MapBST<K, V> {
 };
 
 interface CompareFunction<C> {
-    (AComparable: C, BComparable: C): number;
+    (aComparable: C, bComparable: C): number;
 };
 
 export class NodeBST<K, V> {

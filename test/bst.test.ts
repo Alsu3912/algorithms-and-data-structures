@@ -1,8 +1,8 @@
 import MapBST from '../src/bst';
 import { NodeBST } from '../src/bst';
 
-const compare = (AComparable: number, BComparable: number): number => {
-    return AComparable - BComparable;
+const compare = (aComparable: number, bComparable: number): number => {
+    return aComparable - bComparable;
 };
 
 describe('add method', () => {
