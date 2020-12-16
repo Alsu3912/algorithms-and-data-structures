@@ -72,3 +72,6 @@ the asceding order;
 Internal structure of your map should be a binary search tree for the given keys. Keys should be comparable with each other and for that an additional function should be provided for a user of your library. As a result, you should provide a code covered with tests.
 
 Also try to answer is TS implementation of generics covariant? Or contravariant?
+
+## Heap
+Find out what is Heap as a data structure, what is the API of that with its complexity, and how it's implemented in Javascript/Typescript (python is optional, but you can start looking at the language, if you are interested). Solve [this leetcode task](https://leetcode.com/problems/top-k-frequent-elements/) using this knowledge. Note that there is no need to solve the task using tricky quick select algrorithm, use heap and it's enough. Don't forget to write tests for the solution.
