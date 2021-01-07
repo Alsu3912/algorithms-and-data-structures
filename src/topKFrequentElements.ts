@@ -15,15 +15,15 @@ const topKFrequent = (nums: number[], k: number): number[] => {
     });
     for (let [key, value] of map) {
         if (heap.getSize() < k) {
-            heap.add({ key: value, value: key });
-        } else if (value > heap.heapOrderedArray[1].key) {
+            heap.add(value, key);
+        } else if (value > heap.peek().key) {
             heap.delMin();
-            heap.add({ key: value, value: key });
+            heap.add(value, key);
         };
     };
-    heap.heapOrderedArray.forEach((item) => {
-        result.push(item.value);
-    });
+    for (let element of heap) {
+        result.push(element.value);
+    }
     return result;
 }
 
